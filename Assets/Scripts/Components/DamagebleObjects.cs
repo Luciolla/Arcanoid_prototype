@@ -1,21 +1,24 @@
-﻿using UnityEngine;
+﻿using Arcanoid.Components.Levels;
+using UnityEngine;
 
-namespace Assets.Scripts.Components
+namespace Arcanoid.Components
 {
     public class DamagebleObjects : MonoBehaviour
     {
-        [SerializeField][Range(1, 100)] private float _force;
         private Collider _collider;
+        private Quaternion _rotation;
 
         private void Start()
         {
+            _rotation = transform.rotation;
             _collider = GetComponent<BoxCollider>();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             Destroy(gameObject);
-            collision.rigidbody.AddForce(transform.forward * _force, ForceMode.Acceleration);
+            BallComponent.instance.OnDamageEffect();
+            LevelOne.instance.GetHP -= 1;
             //todo score
             //todo сделать основной компонент из которого будут наследовать логику force
         }

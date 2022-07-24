@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "GameStart",
+                    "type": "Button",
+                    "id": "c30c336f-3077-43ec-ba12-541cbd49905c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Motion",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9cda3e6f-ad97-41c3-b9a6-de8106098d4e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -78,7 +98,7 @@
             "id": "d1ca9f8c-d463-4279-ba16-4858cda59717",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Motion",
                     "type": "Value",
                     "id": "e55cb85a-3200-4914-8d20-43ba5006dd62",
                     "expectedControlType": "Vector3",
@@ -95,7 +115,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Motion",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -106,7 +126,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Motion",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -117,29 +137,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Motion",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "forward",
                     "id": "3dda13fd-a8ba-49dd-99db-8b5ac1e9c605",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Motion",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "backward",
                     "id": "5b3ea6b1-73a2-43ed-883d-95e2060a79a4",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Motion",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

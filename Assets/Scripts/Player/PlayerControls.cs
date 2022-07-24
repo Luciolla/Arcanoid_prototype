@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Assets.Scripts.Player
+namespace Arcanoid.Player
 {
     public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
@@ -37,6 +37,15 @@ namespace Assets.Scripts.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GameStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""c30c336f-3077-43ec-ba12-541cbd49905c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -94,6 +103,17 @@ namespace Assets.Scripts.Player
                     ""action"": ""Motion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cda3e6f-ad97-41c3-b9a6-de8106098d4e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GameStart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -102,7 +122,7 @@ namespace Assets.Scripts.Player
             ""id"": ""d1ca9f8c-d463-4279-ba16-4858cda59717"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Motion"",
                     ""type"": ""Value"",
                     ""id"": ""e55cb85a-3200-4914-8d20-43ba5006dd62"",
                     ""expectedControlType"": ""Vector3"",
@@ -119,7 +139,7 @@ namespace Assets.Scripts.Player
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Motion"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -130,7 +150,7 @@ namespace Assets.Scripts.Player
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Motion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -141,29 +161,29 @@ namespace Assets.Scripts.Player
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Motion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""forward"",
                     ""id"": ""3dda13fd-a8ba-49dd-99db-8b5ac1e9c605"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Motion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""backward"",
                     ""id"": ""5b3ea6b1-73a2-43ed-883d-95e2060a79a4"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Motion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -175,9 +195,10 @@ namespace Assets.Scripts.Player
             // FirstPlayer
             m_FirstPlayer = asset.FindActionMap("FirstPlayer", throwIfNotFound: true);
             m_FirstPlayer_Motion = m_FirstPlayer.FindAction("Motion", throwIfNotFound: true);
+            m_FirstPlayer_GameStart = m_FirstPlayer.FindAction("GameStart", throwIfNotFound: true);
             // SecondPlayer
             m_SecondPlayer = asset.FindActionMap("SecondPlayer", throwIfNotFound: true);
-            m_SecondPlayer_Newaction = m_SecondPlayer.FindAction("New action", throwIfNotFound: true);
+            m_SecondPlayer_Motion = m_SecondPlayer.FindAction("Motion", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -238,11 +259,13 @@ namespace Assets.Scripts.Player
         private readonly InputActionMap m_FirstPlayer;
         private IFirstPlayerActions m_FirstPlayerActionsCallbackInterface;
         private readonly InputAction m_FirstPlayer_Motion;
+        private readonly InputAction m_FirstPlayer_GameStart;
         public struct FirstPlayerActions
         {
             private @PlayerControls m_Wrapper;
             public FirstPlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Motion => m_Wrapper.m_FirstPlayer_Motion;
+            public InputAction @GameStart => m_Wrapper.m_FirstPlayer_GameStart;
             public InputActionMap Get() { return m_Wrapper.m_FirstPlayer; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -255,6 +278,9 @@ namespace Assets.Scripts.Player
                     @Motion.started -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnMotion;
                     @Motion.performed -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnMotion;
                     @Motion.canceled -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnMotion;
+                    @GameStart.started -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnGameStart;
+                    @GameStart.performed -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnGameStart;
+                    @GameStart.canceled -= m_Wrapper.m_FirstPlayerActionsCallbackInterface.OnGameStart;
                 }
                 m_Wrapper.m_FirstPlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -262,6 +288,9 @@ namespace Assets.Scripts.Player
                     @Motion.started += instance.OnMotion;
                     @Motion.performed += instance.OnMotion;
                     @Motion.canceled += instance.OnMotion;
+                    @GameStart.started += instance.OnGameStart;
+                    @GameStart.performed += instance.OnGameStart;
+                    @GameStart.canceled += instance.OnGameStart;
                 }
             }
         }
@@ -270,12 +299,12 @@ namespace Assets.Scripts.Player
         // SecondPlayer
         private readonly InputActionMap m_SecondPlayer;
         private ISecondPlayerActions m_SecondPlayerActionsCallbackInterface;
-        private readonly InputAction m_SecondPlayer_Newaction;
+        private readonly InputAction m_SecondPlayer_Motion;
         public struct SecondPlayerActions
         {
             private @PlayerControls m_Wrapper;
             public SecondPlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Newaction => m_Wrapper.m_SecondPlayer_Newaction;
+            public InputAction @Motion => m_Wrapper.m_SecondPlayer_Motion;
             public InputActionMap Get() { return m_Wrapper.m_SecondPlayer; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -285,16 +314,16 @@ namespace Assets.Scripts.Player
             {
                 if (m_Wrapper.m_SecondPlayerActionsCallbackInterface != null)
                 {
-                    @Newaction.started -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnNewaction;
-                    @Newaction.performed -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnNewaction;
-                    @Newaction.canceled -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnNewaction;
+                    @Motion.started -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnMotion;
+                    @Motion.performed -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnMotion;
+                    @Motion.canceled -= m_Wrapper.m_SecondPlayerActionsCallbackInterface.OnMotion;
                 }
                 m_Wrapper.m_SecondPlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Newaction.started += instance.OnNewaction;
-                    @Newaction.performed += instance.OnNewaction;
-                    @Newaction.canceled += instance.OnNewaction;
+                    @Motion.started += instance.OnMotion;
+                    @Motion.performed += instance.OnMotion;
+                    @Motion.canceled += instance.OnMotion;
                 }
             }
         }
@@ -302,10 +331,11 @@ namespace Assets.Scripts.Player
         public interface IFirstPlayerActions
         {
             void OnMotion(InputAction.CallbackContext context);
+            void OnGameStart(InputAction.CallbackContext context);
         }
         public interface ISecondPlayerActions
         {
-            void OnNewaction(InputAction.CallbackContext context);
+            void OnMotion(InputAction.CallbackContext context);
         }
     }
 }

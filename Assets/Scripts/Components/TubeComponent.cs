@@ -1,23 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace Assets.Scripts.Components
+namespace Arcanoid.Components
 {
     public class TubeComponent : MonoBehaviour
     {
-        [SerializeField][Range(1, 100)] private float _force = 1f;
-        private Collider _collider;
+
+        [SerializeField] protected Material _islevel1Material;
+        [SerializeField] protected Material _islevel2Material;
+        [SerializeField] protected Material _islevel3Material;
+
+        private static MeshRenderer _mesh;
+
+        private static Material[] _meshMaterials = new Material[2];
+
+        public static TubeComponent instance;
 
         private void Start()
         {
-            _collider = GetComponent<BoxCollider>();
+            instance = this;
+            _mesh = GetComponent<MeshRenderer>();
+            _meshMaterials[0] = _mesh.material;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void ChangeLevelMaterial(Material material)
         {
-            collision.rigidbody.AddForce(transform.forward * _force, ForceMode.Acceleration);
-            //todo сделать основной компонент из которого будут наследовать логику force
+            //_meshMaterials[1] = null;
+            //_meshMaterials[1] = material;
+            //_mesh.materials = _meshMaterials.Where(t => t != null).ToArray();
+            gameObject.GetComponent<MeshRenderer>().material = material;
         }
+
+        public void SetLevelTwo() => ChangeLevelMaterial(_islevel2Material);
+
+        public void SetLevelThree() => ChangeLevelMaterial(_islevel3Material);
     }
 }

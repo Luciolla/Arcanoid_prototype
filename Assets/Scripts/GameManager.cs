@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Arcanoid
 {
     public class GameManager : MonoBehaviour
     {

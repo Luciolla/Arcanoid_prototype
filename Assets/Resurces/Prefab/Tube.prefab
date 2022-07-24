@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5421641516028489764}
   - component: {fileID: 4555290834234409118}
+  - component: {fileID: 3242891018452572332}
   m_Layer: 0
   m_Name: UpperGate
   m_TagString: Untagged
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.2, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3242891018452572332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735646155380707859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a013156e84917f44e9ad74403a7c66aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4939415330321407366
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +70,7 @@ GameObject:
   - component: {fileID: 4939415330321407483}
   - component: {fileID: 4939415330321407364}
   - component: {fileID: 6699937116753772255}
+  - component: {fileID: 5527252849236745812}
   m_Layer: 0
   m_Name: CubeSide-Z
   m_TagString: Untagged
@@ -151,6 +165,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 3
+  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
+  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
+  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
+--- !u!54 &5527252849236745812
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939415330321407366}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4939415330788918552
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +233,7 @@ GameObject:
   - component: {fileID: 4939415330873151966}
   - component: {fileID: 4939415330873151967}
   - component: {fileID: 2264086492905974447}
+  - component: {fileID: 2702589081841320126}
   m_Layer: 0
   m_Name: CubeSideX
   m_TagString: Untagged
@@ -294,6 +328,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 3
+  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
+  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
+  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
+--- !u!54 &2702589081841320126
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939415330873151961}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4939415331494378442
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +360,7 @@ GameObject:
   - component: {fileID: 4939415331494378447}
   - component: {fileID: 4939415331494378440}
   - component: {fileID: 5083883042999098109}
+  - component: {fileID: 2421358086784589690}
   m_Layer: 0
   m_Name: CubeSideZ
   m_TagString: Untagged
@@ -401,6 +455,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 3
+  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
+  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
+  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
+--- !u!54 &2421358086784589690
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939415331494378442}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4939415331849497896
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +487,7 @@ GameObject:
   - component: {fileID: 4939415331849497901}
   - component: {fileID: 4939415331849497902}
   - component: {fileID: 1210493243525435126}
+  - component: {fileID: 525332275650965047}
   m_Layer: 0
   m_Name: CubeSide-X
   m_TagString: Untagged
@@ -508,6 +582,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 3
+  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
+  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
+  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
+--- !u!54 &525332275650965047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939415331849497896}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6469342556660062240
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2644863249483612632}
   - component: {fileID: 7621161925873470785}
+  - component: {fileID: 6767757566991043924}
   m_Layer: 0
   m_Name: DownGate
   m_TagString: Untagged
@@ -552,3 +646,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.2, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6767757566991043924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469342556660062240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a013156e84917f44e9ad74403a7c66aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
