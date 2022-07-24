@@ -1,21 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Arcanoid
 {
     public class GameManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        //Сдесь могла бы быть ваша реклама!
+        //по факту, частично, функции мг размыты по коду и основной пласт лежит на NextLevelComponent
+        //в теории можно было бы вынести ВСЕ настройки шаров, клеток и пр. в ГМ, для регулирования
+        //но так как это прототип, и у меня еще весит прошлое дз - заморачиваться лень :D короче //todo
     }
 }

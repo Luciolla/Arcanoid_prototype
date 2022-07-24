@@ -12,7 +12,7 @@ namespace Arcanoid.Components
 
     public class NextLevelComponent : MonoBehaviour
     {
-        [Tooltip("Список левелов:")]
+        [Tooltip("Список левелов:")] //todo сделать просто список через list
         [SerializeField] private GameObject _levelOne;
         [SerializeField] private GameObject _levelTwo;
         [SerializeField] private GameObject _levelThree;
@@ -34,7 +34,7 @@ namespace Arcanoid.Components
             }
         }
 
-        private void ApplyNextLevel(LevelEnum level)
+        private void ApplyNextLevel(LevelEnum level) //todo упростить, ибо повторяющийся код
         {
             if (level == LevelEnum.LevelTwo)
             {

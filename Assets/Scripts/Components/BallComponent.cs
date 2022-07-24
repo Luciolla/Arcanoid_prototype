@@ -1,20 +1,23 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Arcanoid.Components
 {
     public class BallComponent : MonoBehaviour
     {
-        [Tooltip("Начальная скорость движения шара")]
-        [SerializeField][Range(0, 10)] private float _moveSpeed = 0.01f;
-        [Tooltip("Максимальная скорость движения шара")]
-        [SerializeField][Range(0, 3)] private float _speedMaxLimit = 10f;
+        [Tooltip("Начальная скорость движения шара"), SerializeField, Range(1, 10)]
+        private float _moveSpeed = 1f;
+        [Tooltip("Максимальная скорость движения шара"), SerializeField, Range(0, 10)]
+        private float _speedMaxLimit = 10f;
+        [Tooltip("Коэффициент прирощения скорости"), SerializeField, Range(0, 3)]
+        private float _speedAccelerator = 0.25f;
+        [Tooltip("Точка спавна (для поворота)"), SerializeField]
+        private GameObject _spawnPoint;
 
         public static BallComponent instance;
-        private Rigidbody _rigidbody;
+
+        private Rigidbody _rigidbody; //кажется лишнее
         private Collider _collider;
-        private Quaternion _startRotation;
         private float _startSpeed;
 
         private void Start()
@@ -23,7 +26,6 @@ namespace Arcanoid.Components
             _collider = GetComponent<SphereCollider>();
             _rigidbody = GetComponent<Rigidbody>();
             _startSpeed = _moveSpeed;
-            _startRotation = transform.rotation;
         }
 
         public void OnMotionStart() => StartCoroutine(StartMotion());
@@ -34,9 +36,9 @@ namespace Arcanoid.Components
 
         public void ResetSpeed() => _moveSpeed = _startSpeed;
 
-        public void ResetRotation() => transform.rotation = _startRotation;
+        public void ResetRotation() => transform.rotation = _spawnPoint.transform.rotation * new Quaternion(-1f, 0f, 0f, 0);
 
-        public Collider GetCollider {get => _collider;}
+        public Collider GetCollider { get => _collider; }
 
         private IEnumerator StartMotion()
         {
@@ -61,7 +63,7 @@ namespace Arcanoid.Components
         {
             if (_moveSpeed < _speedMaxLimit)
             {
-                _moveSpeed = _moveSpeed + 0.02f;
+                _moveSpeed = _moveSpeed + _speedAccelerator;
             }
         }
     }

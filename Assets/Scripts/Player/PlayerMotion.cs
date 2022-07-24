@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using Arcanoid.Components;
-using static UnityEngine.InputSystem.InputAction;
-
 
 namespace Arcanoid.Player
 {
@@ -14,7 +8,6 @@ namespace Arcanoid.Player
         FirstPlayer,
         SecondPlayer
     }
-
     public class PlayerMotion : MonoBehaviour
     {
         [Tooltip("Выбор управления"), SerializeField]
@@ -26,7 +19,7 @@ namespace Arcanoid.Player
         public PlayerControls _controls;
         public static PlayerMotion instance;
 
-        private Vector3 _object;
+        private static bool _isPlaying = false;
 
         private void Awake()
         {
@@ -52,8 +45,8 @@ namespace Arcanoid.Player
             Motion();
         }
 
-        public GameObject GetGameObject{ get => _gameObject; }
-
+        public GameObject GetGameObject { get => _gameObject; }
+        public bool IsPlaying { get => _isPlaying; set => _isPlaying = value; }
         private bool CheckPlayer() => _player == PlayerSide.FirstPlayer ? true : false;
 
         private void SelectPlaterControls()
@@ -63,9 +56,8 @@ namespace Arcanoid.Player
                 _controls.FirstPlayer.Enable();
             }
             else _controls.SecondPlayer.Enable();
-               
-        }
 
+        }
         private void Motion()
         {
             var value = new Vector3();
@@ -78,14 +70,13 @@ namespace Arcanoid.Player
             Vector3 direction = new Vector3(value.x, 0f, -value.z);
             GetComponent<Rigidbody>().AddForce(direction, ForceMode.Acceleration);
         }
-
         private void ApplyGameStart()
         {
-            if (_controls.FirstPlayer.GameStart.IsPressed())
+            if (_isPlaying) return;
+            else if (_controls.FirstPlayer.GameStart.IsPressed())
             {
-                Debug.Log("клац");
                 BallComponent.instance.OnMotionStart();
-                
+                _isPlaying = true;
             }
         }
     }

@@ -16,10 +16,12 @@ namespace Arcanoid.Components
         {
             if (collider == BallComponent.instance.GetCollider)
             {
+                PlayerHealth.instance.PlayerHP -= 1;
                 BallComponent.instance.OnMotionEnd();
                 BallComponent.instance.ResetSpeed();
                 BallComponent.instance.ResetRotation();
                 collider.transform.position = PlayerMotion.instance.GetGameObject.transform.position;
+                PlayerMotion.instance.IsPlaying = false;
             }
         }
     }

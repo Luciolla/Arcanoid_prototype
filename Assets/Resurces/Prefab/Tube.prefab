@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 4939415330321407482}
   - component: {fileID: 4939415330321407483}
   - component: {fileID: 4939415330321407364}
-  - component: {fileID: 6699937116753772255}
   - component: {fileID: 5527252849236745812}
   m_Layer: 0
   m_Name: CubeSide-Z
@@ -152,22 +151,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6699937116753772255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939415330321407366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f507646ac2aec14c8216a8b0d08bbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 3
-  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
-  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
-  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
 --- !u!54 &5527252849236745812
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -193,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4939415330788918559}
+  - component: {fileID: 4726871401074609187}
   m_Layer: 0
   m_Name: Tube
   m_TagString: Untagged
@@ -220,6 +204,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4726871401074609187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939415330788918552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f507646ac2aec14c8216a8b0d08bbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
+  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
+  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
+  _sides:
+  - {fileID: 4939415330321407366}
+  - {fileID: 4939415331494378442}
+  - {fileID: 4939415330873151961}
+  - {fileID: 4939415331849497896}
 --- !u!1 &4939415330873151961
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +236,6 @@ GameObject:
   - component: {fileID: 4939415330873151965}
   - component: {fileID: 4939415330873151966}
   - component: {fileID: 4939415330873151967}
-  - component: {fileID: 2264086492905974447}
   - component: {fileID: 2702589081841320126}
   m_Layer: 0
   m_Name: CubeSideX
@@ -315,22 +318,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2264086492905974447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939415330873151961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f507646ac2aec14c8216a8b0d08bbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 3
-  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
-  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
-  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
 --- !u!54 &2702589081841320126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -359,7 +346,6 @@ GameObject:
   - component: {fileID: 4939415331494378446}
   - component: {fileID: 4939415331494378447}
   - component: {fileID: 4939415331494378440}
-  - component: {fileID: 5083883042999098109}
   - component: {fileID: 2421358086784589690}
   m_Layer: 0
   m_Name: CubeSideZ
@@ -442,22 +428,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5083883042999098109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939415331494378442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f507646ac2aec14c8216a8b0d08bbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 3
-  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
-  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
-  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
 --- !u!54 &2421358086784589690
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -486,7 +456,6 @@ GameObject:
   - component: {fileID: 4939415331849497900}
   - component: {fileID: 4939415331849497901}
   - component: {fileID: 4939415331849497902}
-  - component: {fileID: 1210493243525435126}
   - component: {fileID: 525332275650965047}
   m_Layer: 0
   m_Name: CubeSide-X
@@ -569,22 +538,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1210493243525435126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939415331849497896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f507646ac2aec14c8216a8b0d08bbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 3
-  _islevel1Material: {fileID: 2100000, guid: 30a47bcc48544d2478fcaacba46c32c6, type: 2}
-  _islevel2Material: {fileID: 2100000, guid: a6593f0bdd6e850459384ea8ae40aaef, type: 2}
-  _islevel3Material: {fileID: 2100000, guid: b720efb325abd4142a4092731e3b3cea, type: 2}
 --- !u!54 &525332275650965047
 Rigidbody:
   m_ObjectHideFlags: 0

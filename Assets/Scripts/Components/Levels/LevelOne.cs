@@ -13,7 +13,5 @@ namespace Arcanoid.Components.Levels
             base.Start();
             instance=this;
         }
-        //protected void RandomRotation() => _objects.Where(obj => obj.transform.rotation == Random.rotation);
-        //не работает... хотел сделать доп.задание на вращение... но пока затык из-за непродуманной архитектуры.
     }
 }
