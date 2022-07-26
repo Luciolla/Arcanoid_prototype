@@ -12,11 +12,11 @@ namespace Arcanoid.Components
         [SerializeField] private Material _islevel3Material;
         [SerializeField] private List <GameObject> _sides;
 
-        public static TubeComponent instance;
+        public static TubeComponent Instance;
 
         private void Start()
         {
-            instance = this;
+            Instance = this;
         }
 
         private void ChangeLevelMaterial(Material material)

@@ -14,7 +14,7 @@ namespace Arcanoid.Components
         [Tooltip("Точка спавна (для поворота)"), SerializeField]
         private GameObject _spawnPoint;
 
-        public static BallComponent instance;
+        public static BallComponent Instance;
 
         private Rigidbody _rigidbody; //кажется лишнее
         private Collider _collider;
@@ -22,7 +22,7 @@ namespace Arcanoid.Components
 
         private void Start()
         {
-            instance = this;
+            Instance = this;
             _collider = GetComponent<SphereCollider>();
             _rigidbody = GetComponent<Rigidbody>();
             _startSpeed = _moveSpeed;
