@@ -8,7 +8,7 @@ namespace Arcanoid.Components.Levels
     public class LevelTwo : LevelComponent
     {
         public bool activeSelf;
-        public static LevelTwo Instance;
+        public static LevelTwo instance;
         private void Avake() //видимо лишнее
         {
             _levelHP = _levelBlocks.Count();
@@ -16,7 +16,7 @@ namespace Arcanoid.Components.Levels
         protected override void Start()
         {
             base.Start();
-            Instance = this;
+            instance = this;
         }
     }
 }

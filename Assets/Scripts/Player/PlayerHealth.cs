@@ -13,13 +13,13 @@ namespace Arcanoid.Player
         [Tooltip("объект для вывода надписи экрана смерти"), SerializeField]
         private Text _playerDieText;
 
-        public static PlayerHealth Instance;
+        public static PlayerHealth instance;
 
         public int PlayerHP { get => _playerCurrentHP; set => _playerCurrentHP = value; }
 
         private void Start()
         {
-            Instance = this;
+            instance = this;
         }
 
         private void Update()

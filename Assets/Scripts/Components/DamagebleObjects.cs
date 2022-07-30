@@ -8,8 +8,8 @@ namespace Arcanoid.Components
         private void OnCollisionEnter(Collision collision)
         {
             Destroy(gameObject);
-            BallComponent.Instance.OnDamageEffect();
-            LevelOne.Instance.GetHP -= 1;
+            BallComponent.instance.OnDamageEffect();
+            LevelOne.instance.GetHP -= 1;
         }
     }
 }

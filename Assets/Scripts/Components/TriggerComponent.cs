@@ -14,14 +14,14 @@ namespace Arcanoid.Components
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (collider == BallComponent.Instance.GetCollider)
+            if (collider == BallComponent.instance.GetCollider)
             {
-                PlayerHealth.Instance.PlayerHP -= 1;
-                BallComponent.Instance.OnMotionEnd();
-                BallComponent.Instance.ResetSpeed();
-                BallComponent.Instance.ResetRotation();
-                collider.transform.position = PlayerMotion.Instance.GetGameObject.transform.position;
-                PlayerMotion.Instance.IsPlaying = false;
+                PlayerHealth.instance.PlayerHP -= 1;
+                BallComponent.instance.OnMotionEnd();
+                BallComponent.instance.ResetSpeed();
+                BallComponent.instance.ResetRotation();
+                collider.transform.position = PlayerMotion.instance.GetGameObject.transform.position;
+                PlayerMotion.instance.IsPlaying = false;
             }
         }
     }

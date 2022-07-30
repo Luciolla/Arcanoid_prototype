@@ -26,11 +26,11 @@ namespace Arcanoid.Components
         {
             if (_levelOne.activeSelf == true)
             {
-                if (LevelOne.Instance.GetHP == 0) ApplyNextLevel(LevelEnum.LevelTwo);
+                if (LevelOne.instance.GetHP == 0) ApplyNextLevel(LevelEnum.LevelTwo);
             }
             else if (_levelTwo.activeSelf == true)
             {
-                if (LevelTwo.Instance.GetHP == 0) ApplyNextLevel(LevelEnum.LevelThree);
+                if (LevelTwo.instance.GetHP == 0) ApplyNextLevel(LevelEnum.LevelThree);
             }
         }
 
@@ -38,14 +38,14 @@ namespace Arcanoid.Components
         {
             if (level == LevelEnum.LevelTwo)
             {
-                TubeComponent.Instance.SetLevelTwo();
+                TubeComponent.instance.SetLevelTwo();
                 _levelOne.gameObject.SetActive(false);
                 _levelTwo.gameObject.SetActive(true);
                 Debug.Log("Второй Уровень!");
             }
             else if (level == LevelEnum.LevelThree)
             {
-                TubeComponent.Instance.SetLevelThree();
+                TubeComponent.instance.SetLevelThree();
                 _levelTwo.gameObject.SetActive(false);
                 _levelThree.gameObject.SetActive(true);
                 Debug.Log("Третий уровень!");

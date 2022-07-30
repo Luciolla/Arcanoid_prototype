@@ -17,7 +17,7 @@ namespace Arcanoid.Player
         public GameObject _gameObject;
 
         public PlayerControls _controls;
-        public static PlayerMotion Instance;
+        public static PlayerMotion instance;
 
         private static bool IsGameStart = false;
 
@@ -28,7 +28,7 @@ namespace Arcanoid.Player
 
         private void Start()
         {
-            Instance = this;
+            instance = this;
             CheckPlayer();
         }
 
@@ -46,7 +46,7 @@ namespace Arcanoid.Player
         }
 
         public GameObject GetGameObject { get => _gameObject; }
-        public bool IsPlaying { get => IsPlaying; set => IsPlaying = value; }
+        public bool IsPlaying { get => IsGameStart; set => IsGameStart = value; }
         private bool CheckPlayer() => _player == PlayerSide.FirstPlayer ? true : false;
 
         private void SelectPlaterControls()
@@ -72,11 +72,11 @@ namespace Arcanoid.Player
         }
         private void ApplyGameStart()
         {
-            if (IsPlaying) return;
+            if (IsGameStart == true) return;
             else if (_controls.FirstPlayer.GameStart.IsPressed())
             {
-                BallComponent.Instance.OnMotionStart();
-                IsPlaying = true;
+                BallComponent.instance.OnMotionStart();
+                IsGameStart = true;
             }
         }
     }
