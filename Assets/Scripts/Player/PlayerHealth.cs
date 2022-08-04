@@ -39,7 +39,7 @@ namespace Arcanoid.Player
 
         private void UpdateHealthStatus()
         {
-            _playerHPText.text = "Health = " + _playerCurrentHP;
+            _playerHPText.text = " = " + _playerCurrentHP;
         }
     }
 }
