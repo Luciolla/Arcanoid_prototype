@@ -13,7 +13,7 @@ namespace Arcanoid.Components
         protected virtual void Start()
         {
             _levelHP = _levelBlocks.Count();
-            Debug.Log(_levelHP);
+            //Debug.Log(_levelHP); //проверял загруженное количество блоков на лв
             StartRotate();
         }
 
