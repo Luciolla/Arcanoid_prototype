@@ -3,13 +3,6 @@ using Arcanoid.Components.Levels;
 
 namespace Arcanoid.Components
 {
-    enum LevelEnum
-    {
-        LevelOne,
-        LevelTwo,
-        LevelThree
-    }
-
     public class NextLevelComponent : MonoBehaviour
     {
         [Tooltip("Список левелов:")] //todo сделать просто список через list

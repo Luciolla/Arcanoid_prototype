@@ -20,6 +20,8 @@ namespace Arcanoid.Components
         private Collider _collider;
         private float _startSpeed;
 
+        public Collider GetCollider { get => _collider; }
+
         private void Start()
         {
             instance = this;
@@ -37,8 +39,6 @@ namespace Arcanoid.Components
         public void ResetSpeed() => _moveSpeed = _startSpeed;
 
         public void ResetRotation() => transform.rotation = _spawnPoint.transform.rotation * new Quaternion(-1f, 0f, 0f, 0);
-
-        public Collider GetCollider { get => _collider; }
 
         private IEnumerator StartMotion()
         {

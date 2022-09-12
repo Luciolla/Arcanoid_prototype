@@ -1,0 +1,16 @@
+
+23:20:36 : Start Game
+23:20:38 : Pause Game
+23:20:39 : Open settings
+23:20:40 : Pause Game
+23:20:40 : Open settings
+23:20:40 : Pause Game
+23:20:41 : Open settings
+23:20:41 : Pause Game
+23:20:42 : Restart Game
+23:20:42 : Start Game
+23:20:42 : Resume Game
+23:20:43 : Pause Game
+23:20:43 : Resume Game
+23:20:44 : Pause Game
+23:20:44 : Exit Game

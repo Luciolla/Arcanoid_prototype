@@ -3,15 +3,12 @@ using Arcanoid.Components;
 
 namespace Arcanoid.Player
 {
-    public enum PlayerSide
-    {
-        FirstPlayer,
-        SecondPlayer
-    }
     public class PlayerMotion : MonoBehaviour
     {
+        private static bool IsGameStart = false;
+
         [Tooltip("Выбор управления"), SerializeField]
-        private PlayerSide _player;
+        private PlayerSideEnum _player;
 
         [Tooltip("Точка респа шара"), SerializeField]
         public GameObject _gameObject;
@@ -19,11 +16,17 @@ namespace Arcanoid.Player
         public PlayerControls _controls;
         public static PlayerMotion instance;
 
-        private static bool IsGameStart = false;
+        public GameObject GetGameObject { get => _gameObject; }
+        public bool IsPlaying { get => IsGameStart; set => IsGameStart = value; }
 
         private void Awake()
         {
             _controls = new PlayerControls();
+        }
+
+        private void OnEnable()
+        {
+            SelectPlaterControls();
         }
 
         private void Start()
@@ -32,10 +35,6 @@ namespace Arcanoid.Player
             CheckPlayer();
         }
 
-        private void OnEnable()
-        {
-            SelectPlaterControls();
-        }
         private void Update()
         {
             ApplyGameStart();
@@ -43,11 +42,12 @@ namespace Arcanoid.Player
         private void FixedUpdate()
         {
             MovePlayer();
+#if UNITY_EDITOR
+            EditorMovementCheck();
+#endif
         }
 
-        public GameObject GetGameObject { get => _gameObject; }
-        public bool IsPlaying { get => IsGameStart; set => IsGameStart = value; }
-        private bool CheckPlayer() => _player == PlayerSide.FirstPlayer ? true : false;
+        private bool CheckPlayer() => _player == PlayerSideEnum.FirstPlayer ? true : false;
 
         private void SelectPlaterControls()
         {
@@ -61,7 +61,7 @@ namespace Arcanoid.Player
         private void MovePlayer()
         {
             var value = new Vector3();
-            if (_player == PlayerSide.FirstPlayer)
+            if (_player == PlayerSideEnum.FirstPlayer)
             {
                 value = _controls.FirstPlayer.Motion.ReadValue<Vector3>();
             }
@@ -70,6 +70,33 @@ namespace Arcanoid.Player
             Vector3 direction = new Vector3(value.x, 0f, -value.z);
             GetComponent<Rigidbody>().AddForce(direction, ForceMode.Acceleration);
         }
+
+#if UNITY_EDITOR
+        private void EditorMovementCheck()
+        {
+            var changePosition = new Vector3();
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                changePosition += new Vector3(0, 0, 1);
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                changePosition += new Vector3(0, 0, -1);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                changePosition += new Vector3(-1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                changePosition += new Vector3(1, 0, 0);
+            }
+
+            Vector3 direction = new Vector3(changePosition.x, 0f, -changePosition.z);
+            GetComponent<Rigidbody>().AddForce(direction, ForceMode.Acceleration);
+        }
+#endif
+
         private void ApplyGameStart()
         {
             if (IsGameStart == true) return;

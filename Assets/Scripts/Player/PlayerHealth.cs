@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Arcanoid.Components;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Arcanoid.Player
@@ -32,14 +33,17 @@ namespace Arcanoid.Player
         {
             if (PlayerHP == 0)
             {
+#if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPaused = true;
+#endif
                 _playerDieText.text = "YOU DIED...";
+                MenuComponent._gameIsPaused = true;
             }
         }
 
         private void UpdateHealthStatus()
         {
-            _playerHPText.text = "Health = " + _playerCurrentHP;
+            _playerHPText.text = " = " + _playerCurrentHP;
         }
     }
 }

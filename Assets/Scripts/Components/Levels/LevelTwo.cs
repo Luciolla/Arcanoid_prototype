@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using System.Linq;
 
 namespace Arcanoid.Components.Levels
 {
@@ -9,14 +6,12 @@ namespace Arcanoid.Components.Levels
     {
         public bool activeSelf;
         public static LevelTwo instance;
-        private void Avake() //видимо лишнее
-        {
-            _levelHP = _levelBlocks.Count();
-        }
+
         protected override void Start()
         {
             base.Start();
             instance = this;
+            _levelHP = _levelBlocks.Count();
         }
     }
 }
